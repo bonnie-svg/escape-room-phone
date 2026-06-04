@@ -1,5 +1,8 @@
 :root {
   color-scheme: dark;
+  --key-size: clamp(56px, min(18.5vw, calc((100dvh - 320px) / 4)), 78px);
+  --key-gap: clamp(7px, 1.7dvh, 15px);
+  --control-size: clamp(54px, 7.5dvh, 66px);
   --bg: #0b0d10;
   --case: #111317;
   --case-edge: #292d33;
@@ -19,6 +22,7 @@
 html,
 body {
   width: 100%;
+  height: 100%;
   min-height: 100%;
   margin: 0;
 }
@@ -26,7 +30,7 @@ body {
 body {
   display: grid;
   place-items: center;
-  min-height: 100svh;
+  min-height: 100dvh;
   overflow: hidden;
   background:
     radial-gradient(circle at 25% 15%, rgba(255, 255, 255, .08), transparent 24rem),
@@ -46,8 +50,8 @@ button {
 
 .phone-shell {
   width: min(100vw, 430px);
-  height: min(100svh, 880px);
-  min-height: 660px;
+  height: min(100dvh, 880px);
+  min-height: 0;
   padding: clamp(10px, 2.4vw, 18px);
   border: 1px solid var(--case-edge);
   border-radius: clamp(28px, 8vw, 54px);
@@ -62,11 +66,11 @@ button {
 .screen {
   position: relative;
   display: grid;
-  grid-template-rows: 42px minmax(110px, 1fr) auto 84px 62px;
+  grid-template-rows: 38px minmax(58px, 1fr) auto minmax(62px, 9dvh) 58px;
   width: 100%;
   height: 100%;
   overflow: hidden;
-  padding: max(12px, env(safe-area-inset-top)) 22px max(16px, env(safe-area-inset-bottom));
+  padding: max(8px, env(safe-area-inset-top)) 22px max(4px, env(safe-area-inset-bottom));
   border-radius: clamp(22px, 7vw, 42px);
   background:
     linear-gradient(180deg, rgba(255, 255, 255, .04), transparent 22%),
@@ -156,18 +160,18 @@ button {
   flex-direction: column;
   justify-content: end;
   min-width: 0;
-  padding: 32px 0 18px;
+  padding: clamp(4px, 2dvh, 18px) 0 clamp(5px, 1.4dvh, 12px);
   text-align: center;
 }
 
 .carrier {
-  min-height: 21px;
+  min-height: 18px;
   color: var(--muted);
   font-size: 15px;
 }
 
 .number-display {
-  min-height: 58px;
+  min-height: 42px;
   width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -179,7 +183,7 @@ button {
 }
 
 .call-state {
-  min-height: 24px;
+  min-height: 20px;
   color: var(--muted);
   font-size: 16px;
 }
@@ -187,7 +191,7 @@ button {
 .keypad {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: clamp(12px, 2.8svh, 18px) clamp(18px, 6vw, 28px);
+  gap: var(--key-gap) clamp(18px, 6vw, 28px);
   justify-items: center;
   padding: 0 8px;
 }
@@ -195,8 +199,8 @@ button {
 .key {
   display: grid;
   place-items: center;
-  width: clamp(68px, 20vw, 82px);
-  height: clamp(68px, 20vw, 82px);
+  width: var(--key-size);
+  height: var(--key-size);
   aspect-ratio: 1;
   border-radius: 999px;
   background: var(--key);
@@ -233,15 +237,15 @@ button {
   grid-template-columns: 1fr 82px 1fr;
   align-items: center;
   justify-items: center;
-  padding: 10px 4px 2px;
+  padding: 4px;
 }
 
 .call-button,
 .icon-button {
   display: grid;
   place-items: center;
-  width: 66px;
-  height: 66px;
+  width: var(--control-size);
+  height: var(--control-size);
   border-radius: 999px;
   transition: filter .1s ease, transform .1s ease, opacity .1s ease;
 }
@@ -289,7 +293,7 @@ svg {
   align-items: end;
   gap: 2px;
   margin: 0 -12px;
-  padding: 5px 0 0;
+  padding: 3px 0 0;
   border-top: 1px solid rgba(255, 255, 255, .12);
 }
 
@@ -299,7 +303,7 @@ svg {
   align-content: center;
   gap: 3px;
   min-width: 0;
-  height: 52px;
+  height: 50px;
   padding: 0;
   background: transparent;
   color: #90959d;
@@ -410,29 +414,75 @@ svg {
   right: 0;
 }
 
-@media (max-height: 700px) {
+@media (max-height: 760px) {
+  :root {
+    --key-size: clamp(50px, min(17vw, calc((100dvh - 270px) / 4)), 62px);
+    --key-gap: clamp(5px, 1.2dvh, 9px);
+    --control-size: clamp(50px, 7dvh, 58px);
+  }
+
   .phone-shell {
-    min-height: 100svh;
+    height: 100dvh;
+    min-height: 0;
     border-radius: 0;
     padding: 0;
   }
 
   .screen {
     border-radius: 0;
-    grid-template-rows: 38px minmax(72px, 1fr) auto 72px 56px;
+    grid-template-rows: 34px minmax(44px, 1fr) auto 58px 52px;
+    padding-top: max(6px, env(safe-area-inset-top));
+    padding-bottom: max(2px, env(safe-area-inset-bottom));
   }
 
-  .key {
-    width: 62px;
-    height: 62px;
+  .call-display {
+    padding: 2px 0 4px;
   }
 
-  .key span {
-    font-size: 30px;
+  .carrier {
+    display: none;
   }
 
   .phone-tab {
-    height: 48px;
+    height: 46px;
+  }
+}
+
+@media (max-height: 620px) {
+  :root {
+    --key-size: clamp(44px, min(15vw, calc((100dvh - 230px) / 4)), 52px);
+    --key-gap: 4px;
+    --control-size: 48px;
+  }
+
+  .screen {
+    grid-template-rows: 30px minmax(34px, 1fr) auto 52px 48px;
+  }
+
+  .number-display {
+    min-height: 32px;
+    font-size: 26px;
+  }
+
+  .call-state {
+    min-height: 16px;
+    font-size: 13px;
+  }
+
+  .key span {
+    height: 29px;
+    font-size: 27px;
+    line-height: 29px;
+  }
+
+  .key small {
+    margin-top: -6px;
+    font-size: 8px;
+  }
+
+  .phone-tab {
+    height: 42px;
+    font-size: 8px;
   }
 }
 
@@ -443,8 +493,8 @@ svg {
 
   .phone-shell {
     width: 100vw;
-    height: 100svh;
-    min-height: 100svh;
+    height: 100dvh;
+    min-height: 0;
     padding: 0;
     border: 0;
     border-radius: 0;
