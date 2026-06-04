@@ -119,32 +119,43 @@ button {
 }
 
 .key {
-  display: grid;
-  place-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   width: var(--key-size);
   height: var(--key-size);
+  padding: 0;
   aspect-ratio: 1;
   border-radius: 999px;
   background: var(--key);
+  line-height: 1;
+  text-align: center;
   box-shadow: inset 0 1px 0 rgba(255, 255, 255, .08);
   transition: background .08s ease, transform .08s ease;
 }
 
 .key span {
   display: block;
-  height: 35px;
+  width: 100%;
+  height: auto;
   font-size: 34px;
   font-weight: 360;
-  line-height: 36px;
+  font-variant-numeric: tabular-nums;
+  line-height: .92;
+  text-align: center;
+  transform: translateY(1px);
 }
 
 .key small {
   display: block;
-  height: 13px;
-  margin-top: -8px;
+  width: 100%;
+  height: 11px;
+  margin-top: 5px;
   font-size: 10px;
   font-weight: 750;
-  line-height: 13px;
+  line-height: 11px;
+  text-align: center;
   color: #d6d9de;
 }
 
@@ -168,6 +179,7 @@ button {
   place-items: center;
   width: var(--control-size);
   height: var(--control-size);
+  padding: 0;
   border-radius: 999px;
   transition: filter .1s ease, transform .1s ease, opacity .1s ease;
 }
@@ -199,14 +211,24 @@ button {
 }
 
 svg {
+  display: block;
   width: 30px;
   height: 30px;
+  margin: auto;
   fill: currentColor;
 }
 
 .call-button svg,
 .end svg {
   color: #fff;
+}
+
+.call-button svg {
+  transform: translate(1px, 1px);
+}
+
+.end svg {
+  transform: translateY(1px);
 }
 
 .phone-tabs {
@@ -393,14 +415,15 @@ svg {
   }
 
   .key span {
-    height: 29px;
     font-size: 27px;
-    line-height: 29px;
+    line-height: .92;
   }
 
   .key small {
-    margin-top: -6px;
+    height: 9px;
+    margin-top: 3px;
     font-size: 8px;
+    line-height: 9px;
   }
 
   .phone-tab {

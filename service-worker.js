@@ -1,4 +1,4 @@
-const CACHE_NAME = "escape-room-phone-v18";
+const CACHE_NAME = "escape-room-phone-v19";
 const FILES = [
   "./",
   "./index.html",
