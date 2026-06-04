@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#050608">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Phone">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>Phone</title>
+    <link rel="manifest" href="manifest.webmanifest">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <main class="phone-shell" aria-label="Phone">
+      <section class="screen" aria-label="Dialer">
+        <header class="status-bar">
+          <span id="clock">9:41</span>
+          <span class="status-icons" aria-hidden="true">
+            <span class="signal"><i></i><i></i><i></i><i></i></span>
+            <span>5G</span>
+            <span class="battery"><i></i></span>
+          </span>
+        </header>
+
+        <section class="call-display" aria-live="polite">
+          <div id="carrier" class="carrier">No Caller ID</div>
+          <div id="numberDisplay" class="number-display" aria-label="Entered phone number">&nbsp;</div>
+          <div id="callState" class="call-state">Phone</div>
+        </section>
+
+        <section class="keypad" aria-label="Dial pad">
+          <button class="key" data-key="1" aria-label="1"><span>1</span><small>&nbsp;</small></button>
+          <button class="key" data-key="2" aria-label="2 ABC"><span>2</span><small>ABC</small></button>
+          <button class="key" data-key="3" aria-label="3 DEF"><span>3</span><small>DEF</small></button>
+          <button class="key" data-key="4" aria-label="4 GHI"><span>4</span><small>GHI</small></button>
+          <button class="key" data-key="5" aria-label="5 JKL"><span>5</span><small>JKL</small></button>
+          <button class="key" data-key="6" aria-label="6 MNO"><span>6</span><small>MNO</small></button>
+          <button class="key" data-key="7" aria-label="7 PQRS"><span>7</span><small>PQRS</small></button>
+          <button class="key" data-key="8" aria-label="8 TUV"><span>8</span><small>TUV</small></button>
+          <button class="key" data-key="9" aria-label="9 WXYZ"><span>9</span><small>WXYZ</small></button>
+          <button class="key" data-key="*" aria-label="star"><span>*</span><small>&nbsp;</small></button>
+          <button class="key" data-key="0" aria-label="0 plus"><span>0</span><small>+</small></button>
+          <button class="key" data-key="#" aria-label="pound"><span>#</span><small>&nbsp;</small></button>
+        </section>
+
+        <section class="controls" aria-label="Call controls">
+          <button id="backspace" class="icon-button ghost" aria-label="Delete last digit">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 5H9.4L2 12l7.4 7H21a1 1 0 0 0 1-1V6a1 1 0 0 0-1-1Zm-5.3 10.3L13 12.6l-2.7 2.7-1.4-1.4 2.7-2.7-2.7-2.7 1.4-1.4L13 9.8l2.7-2.7 1.4 1.4-2.7 2.7 2.7 2.7-1.4 1.4Z"/></svg>
+          </button>
+          <button id="callButton" class="call-button" aria-label="Call">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6.6 10.8c1.4 2.8 3.8 5.2 6.6 6.6l2.2-2.2c.3-.3.8-.4 1.2-.3 1.3.4 2.7.6 4.1.6.7 0 1.3.6 1.3 1.3v3.5c0 .7-.6 1.3-1.3 1.3C10.4 22 2 13.6 2 3.3 2 2.6 2.6 2 3.3 2h3.5C7.5 2 8 2.6 8 3.3c0 1.4.2 2.8.6 4.1.1.4 0 .9-.3 1.2l-1.7 2.2Z"/></svg>
+          </button>
+          <button id="endButton" class="icon-button end" aria-label="End call">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21.8 15.6c-.2.7-.9 1.1-1.6.9l-3.6-.8c-.6-.1-1-.6-1-1.2l-.1-2.2c-2.3-.7-4.7-.7-7 0l-.1 2.2c0 .6-.4 1.1-1 1.2l-3.6.8c-.7.2-1.4-.2-1.6-.9L1.1 12c-.2-.6 0-1.2.5-1.6 5.8-4.5 15-4.5 20.8 0 .5.4.7 1 .5 1.6l-1.1 3.6Z"/></svg>
+          </button>
+        </section>
+
+        <nav class="phone-tabs" aria-label="Phone sections">
+          <button class="phone-tab" type="button" aria-disabled="true">
+            <span class="tab-icon star-icon" aria-hidden="true">★</span>
+            <span>Favorites</span>
+          </button>
+          <button class="phone-tab" type="button" aria-disabled="true">
+            <span class="tab-icon clock-icon" aria-hidden="true"></span>
+            <span>Recents</span>
+          </button>
+          <button class="phone-tab" type="button" aria-disabled="true">
+            <span class="tab-icon contact-icon" aria-hidden="true"></span>
+            <span>Contacts</span>
+          </button>
+          <button class="phone-tab active" type="button" aria-current="page">
+            <span class="tab-icon keypad-icon" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></span>
+            <span>Keypad</span>
+          </button>
+          <button class="phone-tab" type="button" aria-disabled="true">
+            <span class="tab-icon voicemail-icon" aria-hidden="true"><i></i><i></i></span>
+            <span>Voicemail</span>
+          </button>
+        </nav>
+      </section>
+    </main>
+
+    <audio id="correctAudio" preload="auto" src="assets/correct-call.mp3"></audio>
+    <audio id="wrongAudio" preload="auto" src="assets/wrong-number.mp3"></audio>
+    <script src="app.js"></script>
+  </body>
+</html>
