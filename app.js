@@ -9,7 +9,6 @@ const carrier = document.querySelector("#carrier");
 const callButton = document.querySelector("#callButton");
 const endButton = document.querySelector("#endButton");
 const backspace = document.querySelector("#backspace");
-const clock = document.querySelector("#clock");
 const correctAudio = document.querySelector("#correctAudio");
 const wrongAudio = document.querySelector("#wrongAudio");
 const keys = Array.from(document.querySelectorAll(".key"));
@@ -43,13 +42,6 @@ function formatNumber(value) {
 function updateDisplay() {
   numberDisplay.textContent = formatNumber(dialed) || "\u00a0";
   backspace.disabled = dialed.length === 0;
-}
-
-function updateClock() {
-  clock.textContent = new Intl.DateTimeFormat([], {
-    hour: "numeric",
-    minute: "2-digit",
-  }).format(new Date());
 }
 
 function ensureAudioContext() {
@@ -367,6 +359,4 @@ if ("serviceWorker" in navigator) {
   navigator.serviceWorker.register("service-worker.js").catch(() => {});
 }
 
-updateClock();
 updateDisplay();
-window.setInterval(updateClock, 10000);
